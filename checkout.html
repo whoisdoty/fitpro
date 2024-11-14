@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">View Cart</a></li>
+                <li><a href="confirmed-orders.html">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="checkout">
+            <h2 style="color: white; text-align: center;">Delivery Information</h2>
+            <form id="checkout-form" style="color: white;">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+
+                <label for="municipality">Municipality:</label>
+                <select id="municipality" name="municipality" required onchange="updateBarangays()">
+                    <option value="">Select Municipality</option>
+                    <option value="Ipil">Ipil</option>
+                </select>
+
+                <label for="barangay">Barangay:</label>
+                <select id="barangay" name="barangay" required>
+                    <option value="">Select Barangay</option>
+                </select>
+
+                <h3 style="color: white;">Payment Method</h3>
+                <div class="toggle-buttons">
+                    <button type="button" class="toggle-btn active" id="cod-btn">Cash on Delivery</button>
+                </div>
+
+                <h3 style="color: white;">Delivery Options</h3>
+                <div class="toggle-buttons delivery-buttons">
+                    <button type="button" class="toggle-btn active" id="standard-btn" onclick="toggleDeliveryMethod('standard', this)">Standard Delivery (3-5 days)</button>
+                    <button type="button" class="toggle-btn" id="express-btn" onclick="toggleDeliveryMethod('express', this)">Express Delivery (1-2 days)</button>
+                </div>
+
+                <button type="submit" class="checkout-button">Submit Order</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Fitness Store</p>
+    </footer>
+    <script src="checkout.js"></script>
+</body>
+</html>
